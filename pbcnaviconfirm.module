@@ -1,33 +1,26 @@
 <?php
-
-/* 
+/**
  * @file
  * Website navigation confirmation (forms completion)
  */
-/*
+
+/**
  * Implements hook_init().
  */
-
 function pbcnaviconfirm_init() {
-$paths_array = array(1 => 'node/add/appointment',
-                     2 => 'node/add/article',
-                     3 => 'node/add/page',
-                     4 => 'admin/structure/entity-type/vehicle/car/add',
-                     5 => 'admin/structure/entity-type/vehicle/truck/add',
-                     6 => 'admin/structure/entity-type/vehicle/motorcycle/add',
-                     7 => 'node/add/panel/choose-layout',);
-  
- if (in_array(current_path(), $paths_array))
-  {
-      drupal_add_js(" jQuery(document).ready(function () {jQuery(window).bind('beforeunload',function() {   
- return 'You are currently creating an appointment. All unsaved changes will be lost if you leave';});
-});", 'inline');
-   }
+  $paths_array = array(
+    1 => 'node/add/appointment',
+    2 => 'node/add/article',
+    3 => 'node/add/page',
+    4 => 'admin/structure/entity-type/vehicle/car/add',
+    5 => 'admin/structure/entity-type/vehicle/truck/add',
+    6 => 'admin/structure/entity-type/vehicle/motorcycle/add',
+    7 => 'node/add/panel/choose-layout');
+
+  if (in_array(current_path(), $paths_array)) {
+    drupal_add_js(" jQuery(document).ready(function () {jQuery(window).bind('beforeunload',function() {   
+      return 'You are currently creating an appointment. All unsaved changes will be lost if you leave';});
+      });", 'inline');
+  }
 }
-   
-
-//if (current_path() == 'node/add/appointment' ) 
-
-
-
-
+// If (current_path() == 'node/add/appointment')
